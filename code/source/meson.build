@@ -1,6 +1,6 @@
 code = files('module.c')
 
-lib = library('trilo-c',
+lib = static_library('tscl-c',
     code,
     include_directories: dir,
     install: true)
