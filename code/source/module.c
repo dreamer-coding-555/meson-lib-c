@@ -8,7 +8,7 @@
 
     Author: Michael Gene Brockus (Dreamer)
     Email: michaelbrockus@gmail.com
-    Website: [Trilobite Coder Blog](https://trilobite.code.blog)
+    Website: [Trilobite Coder Blog](https://trilobite.home.blog)
 
     Project: Trilobite Stdlib
 
