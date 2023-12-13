@@ -34,7 +34,7 @@
 //
 // XUNIT-GROUP: list of test groups for the runner
 //
-extern void basic_group(XUnitRunner *runner); 
+XTEST_GROUP_EXTERN(basic_group); 
 
 //
 // XUNIT-TEST RUNNER
@@ -42,7 +42,7 @@ extern void basic_group(XUnitRunner *runner);
 int main(int argc, char **argv) {
     XUnitRunner runner = XTEST_RUNNER_START(argc, argv);
 
-    basic_group(&runner);
+    XTEST_GROUP_REGISTER(basic_group, &runner);
 
     return XTEST_RUNNER_END(runner);
 } // end of func
