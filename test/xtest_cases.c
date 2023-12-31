@@ -59,13 +59,13 @@ XTEST_TEARDOWN(project_tests) {
 // XUNIT-CASES: list of test cases testing project features
 //
 XTEST_CASE_FIXTURE(project_tests, basic_run_of_string) {
-    TEST_ASSERT_EQUAL_STRING(project_data.one, project_data.one);
-    TEST_ASSERT_NOT_EQUAL_STRING(project_data.one, project_data.two);
+    TEST_ASSERT_EQUAL_CSTRING(project_data.one, project_data.one);
+    TEST_ASSERT_NOT_EQUAL_CSTRING(project_data.one, project_data.two);
 }
 
 XTEST_CASE_FIXTURE(project_tests, basic_run_of_pointer) {
-    TEST_ASSERT_NOT_NULL_PTR("Coffee Cup");
-    TEST_ASSERT_NULL_PTR(NULL);
+    TEST_ASSERT_NOT_CNULLPTR("Coffee Cup");
+    TEST_ASSERT_CNULLPTR(NULL);
 }
 
 XTEST_CASE_FIXTURE(project_tests, basic_run_of_boolean) {
