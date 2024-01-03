@@ -1,9 +1,9 @@
 code = files('module.c')
 
-lib = static_library('tscl-c',
+lib = static_library('fscl-c',
     code,
     include_directories: dir)
 
-tscl_c_dep = declare_dependency(
+fscl_c_dep = declare_dependency(
     link_with: lib,
     include_directories: dir)
