@@ -25,14 +25,14 @@ Create a directory named subprojects in the root directory, next create a file n
 
    ```bash
    # ================ #
-   #  TSCL Wrap File. #
+   #  FSCL Wrap File. #
    # ================ #
    [wrap-git]
-   url = https://github.com/trilobite-stdlib/tscl-<name>-c.git
+   url = https://github.com/fossil-lib/fscl-<name>-c.git
    revision = main
    
    [provide]
-   tscl-x<name>-c = tscl_x<name>_c_dep
+   fscl-x<name>-c = fscl_x<name>_c_dep
    ```
 
 2. **Integrate Wrap File in Meson Build**:
@@ -42,7 +42,7 @@ Create a directory named subprojects in the root directory, next create a file n
        default_options : ['warning_level=3'])
 
    exe = executable('my_project', 'my_project.c',
-       dependencies : dependency('tscl-x<name>-c'), # add this line
+       dependencies : dependency('fscl-x<name>-c'), # add this line
        install : true)
 
    test('basic', exe)
@@ -53,10 +53,6 @@ Create a directory named subprojects in the root directory, next create a file n
    meson setup builddir
    meson compile -C builddir
    ```
-
-4. **Visit the reference guide to learn how to this**
-
-Here is the link to the [Refrence Docs](https://trilobite.home.blog/reference-docs/)
 
 ## Including the Demo and Running Tests
 
@@ -72,7 +68,7 @@ meson setup builddir -Dwith_test=enabled
 
 ## Contributing
 
-If you're interested in contributing to this project, please consider opening pull requests or creating issues on the [GitHub repository](https://github.com/dreamer-coding-555/meson-lib-c). Be sure to read the documentation on the [project website](https://trilobite.home.blog).
+If you're interested in contributing to this project, please consider opening pull requests or creating issues on the [GitHub repository](https://github.com/dreamer-coding-555/meson-lib-c).
 
 ## Feedback and Support
 
@@ -85,7 +81,3 @@ This project is licensed under the [Apache License 2.0](LICENSE).
 ---
 
 Thank you for choosing this project with the Meson build system. Happy coding and building amazing projects!
-
-## Contact
-
-If you have questions or want to get in touch regarding programming solutions, you can find a way to contact me on my [website](https://trilobite.code.blog/contact/).
