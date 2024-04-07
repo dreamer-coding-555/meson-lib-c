@@ -11,7 +11,7 @@ Description:
 ==============================================================================
 */
 #include <fossil/xtest.h>   // basic test tools
-#include <fossil/xassert.h> // extra asserts
+#include <fossil/xassume.h> // extra asserts
 
 #include <fossil/module.h> // library under test
 
@@ -40,28 +40,28 @@ XTEST_TEARDOWN(project_tests) {
 // XUNIT-CASES: list of test cases testing project features
 //
 XTEST_CASE_FIXTURE(project_tests, basic_run_of_string) {
-    TEST_ASSERT_EQUAL_CSTRING(project_data.one, project_data.one);
-    TEST_ASSERT_NOT_EQUAL_CSTRING(project_data.one, project_data.two);
+    TEST_ASSUME_EQUAL_CSTRING(project_data.one, project_data.one);
+    TEST_ASSUME_NOT_EQUAL_CSTRING(project_data.one, project_data.two);
 }
 
 XTEST_CASE_FIXTURE(project_tests, basic_run_of_pointer) {
-    TEST_ASSERT_NOT_CNULLPTR("Coffee Cup");
-    TEST_ASSERT_CNULLPTR(NULL);
+    TEST_ASSUME_NOT_CNULLPTR("Coffee Cup");
+    TEST_ASSUME_CNULLPTR(NULL);
 }
 
 XTEST_CASE_FIXTURE(project_tests, basic_run_of_boolean) {
-    TEST_ASSERT_TRUE(true);
-    TEST_ASSERT_FALSE(false);
+    TEST_ASSUME_TRUE(xtrue);
+    TEST_ASSUME_FALSE(xfalse);
 }
 
 XTEST_CASE_FIXTURE(project_tests, basic_run_of_subtract) {
-    TEST_ASSERT_TRUE(subtract(4, 2) == 2);
-    TEST_ASSERT_FALSE(subtract(2, 55) == 2);
+    TEST_ASSUME_TRUE(subtract(4, 2) == 2);
+    TEST_ASSUME_FALSE(subtract(2, 55) == 2);
 }
 
 XTEST_CASE_FIXTURE(project_tests, basic_run_of_adding) {
-    TEST_ASSERT_TRUE(add(2, 2) == 4);
-    TEST_ASSERT_FALSE(add(2, 3) == 42);
+    TEST_ASSUME_TRUE(add(2, 2) == 4);
+    TEST_ASSUME_FALSE(add(2, 3) == 42);
 }
 
 //
