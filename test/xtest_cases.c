@@ -33,6 +33,6 @@ XTEST(lib_add_case) {
 // XUNIT-GROUP: a group of test cases from the current test file
 //
 XTEST_DEFINE_POOL(basic_group) {
-    XTEST_RUN_UNIT(lib_subtract_case);
-    XTEST_RUN_UNIT(lib_add_case);
+    ADD_TEST(lib_subtract_case);
+    ADD_TEST(lib_add_case);
 } // end of fixture
