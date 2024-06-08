@@ -15,9 +15,22 @@ Description:
 #include <fossil/xtest.h>   // basic test tools
 #include <fossil/xassume.h> // extra asserts
 
-//
-// XUNIT-CASES: list of test cases testing project features
-//
+// * * * * * * * * * * * * * * * * * * * * * * * *
+// * Fossil Logic Test Utilites
+// * * * * * * * * * * * * * * * * * * * * * * * *
+// Setup steps for things like test fixtures and
+// mock objects are set here.
+// * * * * * * * * * * * * * * * * * * * * * * * *
+
+// placeholder
+
+// * * * * * * * * * * * * * * * * * * * * * * * *
+// * Fossil Logic Test Cases
+// * * * * * * * * * * * * * * * * * * * * * * * *
+// The test cases below are provided as samples, inspired
+// by the Meson build system's approach of using test cases
+// as samples for library usage.
+// * * * * * * * * * * * * * * * * * * * * * * * *
 
 XTEST(lib_subtract_case) {
     ASSUME_ITS_TRUE(subtract(4, 2) == 2);
@@ -29,9 +42,9 @@ XTEST(lib_add_case) {
     ASSUME_ITS_FALSE(add(2, 3) == 42);
 }
 
-//
-// XUNIT-GROUP: a group of test cases from the current test file
-//
+// * * * * * * * * * * * * * * * * * * * * * * * *
+// * Fossil Logic Test Pool
+// * * * * * * * * * * * * * * * * * * * * * * * *
 XTEST_DEFINE_POOL(basic_group) {
     ADD_TEST(lib_subtract_case);
     ADD_TEST(lib_add_case);
