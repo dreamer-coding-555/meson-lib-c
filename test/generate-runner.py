@@ -27,23 +27,10 @@ class TestRunnerGenerator:
         if extension == 'c':
             header += """
 #include <fossil/xtest.h>
-
-//
-// XUNIT-GROUP: list of test groups for the runner
-//"""
+"""
         elif extension == 'cpp':
             header += """
 #include <fossil/xtest.h>
-
-//
-// XUNIT-GROUP: list of test groups for the runner
-//"""
-        elif extension == 'rs':
-            header += """
-#[macro_use]
-extern crate fossil_xtest;
-
-use fossil_xtest::*;
 """
         elif extension == 'm':
             header += """
@@ -54,13 +41,19 @@ use fossil_xtest::*;
 #import <fossil/xtest.h>
 """
 
+        header += """
+
+// * * * * * * * * * * * * * * * * * * * * * * * *
+// * Fossil Logic Test List
+// * * * * * * * * * * * * * * * * * * * * * * * *\n"""
+
         extern_pools = '\n'.join([f"XTEST_EXTERN_POOL({group});" for group in test_groups])
 
         runner = """
-//
-// XUNIT-TEST RUNNER:
-//
-"""
+
+// * * * * * * * * * * * * * * * * * * * * * * * *
+// * Fossil Logic Test Runner
+// * * * * * * * * * * * * * * * * * * * * * * * *"""
 
         if extension == 'c':
             runner += """
@@ -70,19 +63,19 @@ int main(int argc, char **argv) {
             runner += """
 int main(int argc, char **argv) {
     XTEST_CREATE(argc, argv);\n"""
-        elif extension == 'rs':
-            runner += """
-fn main() {\n"""
         elif extension == 'm':
             runner += """
-int main(int argc, const char **argv) {\n"""
+int main(int argc, const char **argv) {
+    XTEST_CREATE(argc, argv);\n\n"""
         elif extension == 'mm':
             runner += """
-int main(int argc, const char **argv) {\n"""
+int main(int argc, const char **argv) {
+    XTEST_CREATE(argc, argv);\n\n"""
 
         import_pools = '\n'.join([f"    XTEST_IMPORT_POOL({group});" for group in test_groups])
 
         footer = """
+    XTEST_RUN();
     return XTEST_ERASE();
 } // end of func
 """
@@ -96,9 +89,8 @@ int main(int argc, const char **argv) {\n"""
             file.write("\n")
             file.write(footer)
 
-# Example usage:
 generator = TestRunnerGenerator()
-extensions = ['c', 'cpp', 'rs', 'm', 'mm']  # Add more extensions as needed
+extensions = ['c']
 for ext in extensions:
     test_groups = generator.find_test_groups(ext)
     generator.generate_test_runner(test_groups, ext)
