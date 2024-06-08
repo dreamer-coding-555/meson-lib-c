@@ -20,13 +20,13 @@ Description:
 //
 
 XTEST(lib_subtract_case) {
-    TEST_ASSUME_TRUE(subtract(4, 2) == 2);
-    TEST_ASSUME_FALSE(subtract(2, 55) == 2);
+    ASSUME_ITS_TRUE(subtract(4, 2) == 2);
+    ASSUME_ITS_FALSE(subtract(2, 55) == 2);
 }
 
 XTEST(lib_add_case) {
-    TEST_ASSUME_TRUE(add(2, 2) == 4);
-    TEST_ASSUME_FALSE(add(2, 3) == 42);
+    ASSUME_ITS_TRUE(add(2, 2) == 4);
+    ASSUME_ITS_FALSE(add(2, 3) == 42);
 }
 
 //
