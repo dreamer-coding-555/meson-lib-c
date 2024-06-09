@@ -1,6 +1,7 @@
 code = files('module.c')
 
 common_dep = dependency('fscl-xcommon-c')
+
 lib = library('fscl-c',
     code,
     dependencies : common_dep,
