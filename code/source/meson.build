@@ -1,14 +1,11 @@
 code = files('module.c')
 
-common_dep = dependency('fscl-xcommon-c')
-
-lib = library('fscl-c',
+lib = library('fossil-c',
     code,
-    dependencies : common_dep,
-    install: true,
+    dependencies : code_deps,
     include_directories: dir)
 
-fscl_c_dep = declare_dependency(
+fossil_dep = declare_dependency(
     link_with: lib,
-    dependencies : common_dep,
+    dependencies : code_deps,
     include_directories: dir)
